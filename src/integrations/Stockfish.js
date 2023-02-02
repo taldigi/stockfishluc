@@ -1,6 +1,7 @@
-import React, { Component } from "react";
+import { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { Chess } from "chess.js"; // import Chess from  "chess.js"(default) if recieving an error about new Chess not being a constructor
+import Chess from "chess.js"; // import Chess from  "chess.js"(default) if recieving an error about new Chess not being a constructor
 
 const STOCKFISH = window.STOCKFISH;
 const game = new Chess();
@@ -21,19 +22,19 @@ class Stockfish extends Component {
     const move = game.move({
       from: sourceSquare,
       to: targetSquare,
-      promotion: "q"
+      promotion: "q",
     });
 
     // illegal move
     if (move === null) return;
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this.setState({ fen: game.fen() });
       resolve();
     }).then(() => this.engineGame().prepareMove());
   };
 
-  engineGame = options => {
+  engineGame = (options) => {
     options = options || {};
 
     /// We can load Stockfish via Web Workers or via STOCKFISH() if loaded from a <script> tag.
@@ -54,7 +55,7 @@ class Stockfish extends Component {
     // do not pick up pieces if the game is over
     // only pick up pieces for White
 
-    setInterval(function() {
+    setInterval(function () {
       if (announced_game_over) {
         return;
       }
@@ -157,7 +158,7 @@ class Stockfish extends Component {
       }
     };
 
-    evaler.onmessage = function(event) {
+    evaler.onmessage = function (event) {
       let line;
 
       if (event && typeof event === "object") {
@@ -178,7 +179,7 @@ class Stockfish extends Component {
       }
     };
 
-    engine.onmessage = event => {
+    engine.onmessage = (event) => {
       let line;
 
       if (event && typeof event === "object") {
@@ -232,7 +233,7 @@ class Stockfish extends Component {
     };
 
     return {
-      start: function() {
+      start: function () {
         uciCmd("ucinewgame");
         uciCmd("isready");
         engineStatus.engineReady = false;
@@ -240,9 +241,9 @@ class Stockfish extends Component {
         prepareMove();
         announced_game_over = false;
       },
-      prepareMove: function() {
+      prepareMove: function () {
         prepareMove();
-      }
+      },
     };
   };
 
