@@ -62,11 +62,12 @@ class Stockfish extends Component {
 
       if (game.game_over()) {
         announced_game_over = true;
+        console.log("Game over");
       }
     }, 500);
 
     function uciCmd(cmd, which) {
-      // console.log('UCI: ' + cmd);
+      console.log("UCI: " + cmd);
 
       (which || engine).postMessage(cmd);
     }
@@ -79,6 +80,7 @@ class Stockfish extends Component {
         Date.now();
       let timeToNextSecond = (t % 1000) + 1;
       clockTimeoutID = setTimeout(clockTick, timeToNextSecond);
+      //console.log("time: " + t);
     }
 
     function stopClock() {
@@ -118,17 +120,21 @@ class Stockfish extends Component {
         moves +=
           " " + move.from + move.to + (move.promotion ? move.promotion : "");
       }
-
+      console.log(moves);
       return moves;
     }
 
     const prepareMove = () => {
       stopClock();
-      // this.setState({ fen: game.fen() });
+      //in the state fen is working, but in the game.fen() is starting position
+      this.setState({
+        fen: "rnbqkb1r/pp2pppp/2p2n2/7Q/2BPp3/8/PPP2PPP/RNB1K1NR w KQkq - 2 5",
+      });
       let turn = game.turn() === "w" ? "white" : "black";
       if (!game.game_over()) {
-        // if (turn === playerColor) {
-        if (turn !== playerColor) {
+        if (turn === playerColor) {
+          //This if is to change color to play engine
+          // if (turn !== playerColor) {
           // playerColor = playerColor === 'white' ? 'black' : 'white';
           uciCmd("position startpos moves" + get_moves());
           uciCmd("position startpos moves" + get_moves(), evaler);
