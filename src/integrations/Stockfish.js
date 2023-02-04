@@ -1,23 +1,35 @@
-import { Component } from "react";
-import React from "react";
+import React, { Component, useEffect } from "react";
 import PropTypes from "prop-types";
 import Chess from "chess.js"; // import Chess from  "chess.js"(default) if recieving an error about new Chess not being a constructor
 
 const STOCKFISH = window.STOCKFISH;
-const game = new Chess();
+const startingPosition =
+  "rnbqkb1r/pppp1ppp/5n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 0 1";
+
+const game = new Chess(startingPosition);
 
 class Stockfish extends Component {
   static propTypes = { children: PropTypes.func };
 
-  state = { fen: "start" };
+  state = { fen: game.fen() };
 
   componentDidMount() {
+    console.log("Starting the componentDidMount");
+    console.log("game.fen(): " + game.fen());
+    //debugger;
     this.setState({ fen: game.fen() });
 
     this.engineGame().prepareMove();
+    console.log("Finnishing componentDidMount");
+    console.log("game.fen(): " + game.fen());
+    //debugger;
+    //debugger;
   }
 
   onDrop = ({ sourceSquare, targetSquare }) => {
+    console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
+    console.log("31. Game: " + game.fen());
+    console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXX");
     // see if the move is legal
     const move = game.move({
       from: sourceSquare,
@@ -67,8 +79,8 @@ class Stockfish extends Component {
     }, 500);
 
     function uciCmd(cmd, which) {
-      console.log("UCI: " + cmd);
-
+      console.log("82 UCI: " + cmd);
+      console.log("83 uciCmd: " + game.fen());
       (which || engine).postMessage(cmd);
     }
     uciCmd("uci");
@@ -120,26 +132,32 @@ class Stockfish extends Component {
         moves +=
           " " + move.from + move.to + (move.promotion ? move.promotion : "");
       }
-      console.log(moves);
+      console.log("135. moves:" + moves);
       return moves;
     }
 
     const prepareMove = () => {
+      console.log("141. start prepareMove");
+      console.log("142. game.fen(): " + game.fen());
+      //debugger;
       stopClock();
       //in the state fen is working, but in the game.fen() is starting position
       this.setState({
-        fen: "rnbqkb1r/pp2pppp/2p2n2/7Q/2BPp3/8/PPP2PPP/RNB1K1NR w KQkq - 2 5",
+        fen: game.fen(),
       });
+      uciCmd("position fen " + game.fen());
       let turn = game.turn() === "w" ? "white" : "black";
       if (!game.game_over()) {
         if (turn === playerColor) {
           //This if is to change color to play engine
           // if (turn !== playerColor) {
           // playerColor = playerColor === 'white' ? 'black' : 'white';
-          uciCmd("position startpos moves" + get_moves());
-          uciCmd("position startpos moves" + get_moves(), evaler);
-          uciCmd("eval", evaler);
 
+          uciCmd("position fen " + game.fen());
+          console.log("157. get_moves: " + get_moves());
+          uciCmd("position fen" + game.fen() + evaler);
+          uciCmd("eval", evaler);
+          console.log("160. PREPARE MOVE: " + game.fen());
           if (time && time.wtime) {
             uciCmd(
               "go " +
@@ -162,6 +180,9 @@ class Stockfish extends Component {
           startClock();
         }
       }
+      console.log("183. fin prepareMove");
+      console.log("184. game.fen(): " + game.fen());
+      //debugger;
     };
 
     evaler.onmessage = function (event) {
