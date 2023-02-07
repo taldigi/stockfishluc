@@ -2,10 +2,21 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Puzzle from "../pages/Puzzle";
+import { IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+
 function Sidebar() {
   return (
     <div className="left-sidebar">
-      <i class="fas fa-bars hamburger"></i>
+      <IconButton
+        edge="start"
+        color="inherit"
+        aria-label="open drawer"
+        // onClick={toggleDrawer(true)}
+        sx={{ mr: 2, display: { xs: "block", sm: "none" } }}
+      >
+        <MenuIcon />
+      </IconButton>
       <ul>
         <li>
           <a href="/">Home</a>

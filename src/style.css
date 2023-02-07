@@ -31,4 +31,12 @@ body   {
   color: #fff;
   text-decoration: none;
 }
-  
+.hamburger {
+  display: block;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 30px;
+  color: #a31515;
+}
