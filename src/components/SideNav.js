@@ -1,10 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Puzzle from "./Puzzle";
+import Puzzle from "../pages/Puzzle";
 function Sidebar() {
   return (
-    <div>
+    <div className="left-sidebar">
+      <i class="fas fa-bars hamburger"></i>
       <ul>
         <li>
           <a href="/">Home</a>

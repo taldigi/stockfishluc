@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Puzzle from "./components/Puzzle.js";
+import Puzzle from "./pages/Puzzle.js";
 import registerServiceWorker from "./registerServiceWorker";
 import "./style.css";
 import App from "./App.js";
