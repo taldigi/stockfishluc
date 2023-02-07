@@ -5,6 +5,7 @@ import StockFish from "../integrations/Stockfish.js";
 import Button from "@mui/material/Button/Button.js";
 class Puzzle extends Component {
   render() {
+    let widthBoard = window.innerWidth < 600 ? 300 : 700;
     return (
       <div>
         <div style={boardsContainer}>
@@ -12,17 +13,8 @@ class Puzzle extends Component {
             {({ position, onDrop }) => (
               <Chessboard
                 id="stockfish"
-                // FEN IS ADDED BUT NOT WORKING
-                //fen="rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBqKBNR w KQkq - 0 2"
-                /*     position={
-                position ==
-                "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
-                  ? "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBqKBNR w KQkq - 0 2"
-                  : position
-              }
-              {...console.log(position)}*/
                 position={position}
-                width={700}
+                width={widthBoard}
                 onDrop={onDrop}
                 boardStyle={boardStyle}
                 orientation="white"
