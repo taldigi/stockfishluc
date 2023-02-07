@@ -6,16 +6,16 @@ import Puzzle from "../pages/Puzzle";
 import { IconButton } from "@mui/material";
 
 function Sidebar() {
-  const [styleMenu, setStyleMenu] = useState("left-sidebar");
+  const [styleMenu, setStyleMenu] = useState("left-sidebar-inactive");
   const menuHamburger = () => {
     //change the class of the left-sidebar
 
     //change the class of the burger
 
-    if (styleMenu === "left-sidebar") {
-      setStyleMenu("left-sidebar-inactive");
-    } else {
+    if (styleMenu === "left-sidebar-inactive") {
       setStyleMenu("left-sidebar");
+    } else {
+      setStyleMenu("left-sidebar-inactive");
     }
   };
 
