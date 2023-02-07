@@ -13,23 +13,16 @@ function Sidebar() {
 
     //change the class of the burger
 
-    console.log();
-    let menuItems = "active";
     if (document.querySelector(".left-sidebar").classList.toggle("active")) {
-      menuItems = "menu-active";
-      document.querySelector(".burger").styleWidth = "1000px";
-      console.log(menuItems);
-      setStyleMenu("cont2");
+      setStyleMenu("left-sidebar-inactive");
     } else {
-      menuItems = "menu-inactive";
-      console.log(document.querySelector(".burger").classList.toggle("active"));
-      console.log(menuItems);
+      setStyleMenu("left-sidebar");
     }
   };
-  let menuItems = "menu-inactive";
 
   return (
-    <div className={styleMenu}>
+    <div>
+      {" "}
       <i className="burger" onClick={menuHamburger}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -49,17 +42,19 @@ function Sidebar() {
           <line x1="4" y1="18" x2="20" y2="18" />
         </svg>
       </i>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>
-          <a href="/puzzle">Puzzle</a>
-        </li>
-        <li>
-          <a href="/blog">Blog</a>
-        </li>
-      </ul>
+      <div className={styleMenu}>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/puzzle">Puzzle</a>
+          </li>
+          <li>
+            <a href="/blog">Blog</a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }
