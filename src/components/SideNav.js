@@ -8,12 +8,11 @@ import { IconButton } from "@mui/material";
 function Sidebar() {
   const [styleMenu, setStyleMenu] = useState("left-sidebar");
   const menuHamburger = () => {
-    console.log("menuHamburger");
     //change the class of the left-sidebar
 
     //change the class of the burger
 
-    if (document.querySelector(".left-sidebar").classList.toggle("active")) {
+    if (styleMenu === "left-sidebar") {
       setStyleMenu("left-sidebar-inactive");
     } else {
       setStyleMenu("left-sidebar");
@@ -42,6 +41,7 @@ function Sidebar() {
           <line x1="4" y1="18" x2="20" y2="18" />
         </svg>
       </i>
+      {console.log("STYLEMENU" + styleMenu)}
       <div className={styleMenu}>
         <ul>
           <li>
