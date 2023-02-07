@@ -7,6 +7,7 @@ import { IconButton } from "@mui/material";
 
 function Sidebar() {
   const [styleMenu, setStyleMenu] = useState("left-sidebar-inactive");
+  const [burger, setBurger] = useState("burger-inactive");
   const menuHamburger = () => {
     //change the class of the left-sidebar
 
@@ -14,15 +15,17 @@ function Sidebar() {
 
     if (styleMenu === "left-sidebar-inactive") {
       setStyleMenu("left-sidebar");
+      setBurger("burger-active");
     } else {
       setStyleMenu("left-sidebar-inactive");
+      setBurger("burger-inactive");
     }
   };
 
   return (
     <div>
       {" "}
-      <i className="burger" onClick={menuHamburger}>
+      <i className={burger} onClick={menuHamburger}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="icon icon-tabler icon-tabler-menu-2"
