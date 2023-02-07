@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import Chessboard from "chessboardjsx";
 
-import StockFish from "./integrations/Stockfish.js";
+import StockFish from "../integrations/Stockfish.js";
 import Button from "@mui/material/Button/Button.js";
-class Demo extends Component {
+class Puzzle extends Component {
   render() {
     return (
       <div>
-        <Button variant="text">Text</Button>
-        <Button variant="contained">Contained</Button>
-        <Button variant="outlined">Outlined</Button>
         <div style={boardsContainer}>
           <StockFish>
             {({ position, onDrop }) => (
@@ -38,7 +35,7 @@ class Demo extends Component {
   }
 }
 
-export default Demo;
+export default Puzzle;
 
 const boardsContainer = {
   display: "flex",
