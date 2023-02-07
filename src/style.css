@@ -44,7 +44,9 @@ body   {
     background-color: #333;
     color: #fff;
     z-index: 6;
-
+   
+    transition:  height 2s;
+    
   }
   
   .left-sidebar ul {
@@ -69,8 +71,25 @@ body   {
     display: block;
     margin-left: 200px !important;
   }
- 
+  /* transition menu */
   .left-sidebar-inactive{
+
+    height: 3%;
+
+    transition:  height 2s;
+    
+  }
+
+  .left-sidebar-inactive ul {
     display: none;
   }
+  
+  .left-sidebar-inactive li {
+    display: none;
+  }
+  
+  .left-sidebar-inactive a {
+    display: none;
+  }
+  
 }
