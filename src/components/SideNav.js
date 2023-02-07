@@ -6,19 +6,21 @@ import Puzzle from "../pages/Puzzle";
 import { IconButton } from "@mui/material";
 
 function Sidebar() {
-  const [styleMenu, setStyleMenu] = useState("left-sidebar-inactive");
+  const [styleMenu, setStyleMenu] = useState("left-sidebar");
   const [burger, setBurger] = useState("burger-inactive");
+
   const menuHamburger = () => {
     //change the class of the left-sidebar
 
     //change the class of the burger
-
-    if (styleMenu === "left-sidebar-inactive") {
+    if (window.innerWidth < 600) {
+      setStyleMenu("left-sidebar");
+    }
+    if (styleMenu === "left-sidebar") {
       setStyleMenu("left-sidebar");
       setBurger("burger-active");
     } else {
       setStyleMenu("left-sidebar-inactive");
-      setBurger("burger-inactive");
     }
   };
 
@@ -44,7 +46,6 @@ function Sidebar() {
           <line x1="4" y1="18" x2="20" y2="18" />
         </svg>
       </i>
-      {console.log("STYLEMENU" + styleMenu)}
       <div className={styleMenu}>
         <ul>
           <li>

@@ -5,8 +5,12 @@ body   {
     color: #9db38c;
     margin: 0;
     padding: 0;
-}.Container{
-  margin-top: 40%;
+}
+i {
+  display: none;
+}
+.container{
+  margin-top: 1%;
 }
 .left-sidebar {
   width: 15%;
@@ -104,5 +108,12 @@ body   {
   .left-sidebar-inactive a {
     display: none;
   }
-  
+  .container-inactive{
+    margin-top: 40%;
+  }
+  i{
+    display: block;
+    
+
+  }
 }
