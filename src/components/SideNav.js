@@ -4,28 +4,32 @@ import { Routes, Route } from "react-router-dom";
 
 import Puzzle from "../pages/Puzzle";
 import { IconButton } from "@mui/material";
-function menuHamburger() {
-  console.log("menuHamburger");
-  //change the class of the left-sidebar
 
-  //change the class of the burger
-
-  console.log();
-  let menuItems = "active";
-  if (document.querySelector(".left-sidebar").classList.toggle("active")) {
-    menuItems = "menu-active";
-    console.log(document.querySelector(".burger").classList.toggle("active"));
-    console.log(menuItems);
-  } else {
-    menuItems = "menu-inactive";
-    console.log(document.querySelector(".burger").classList.toggle("active"));
-    console.log(menuItems);
-  }
-}
 function Sidebar() {
+  const [styleMenu, setStyleMenu] = useState("left-sidebar");
+  const menuHamburger = () => {
+    console.log("menuHamburger");
+    //change the class of the left-sidebar
+
+    //change the class of the burger
+
+    console.log();
+    let menuItems = "active";
+    if (document.querySelector(".left-sidebar").classList.toggle("active")) {
+      menuItems = "menu-active";
+      document.querySelector(".burger").styleWidth = "1000px";
+      console.log(menuItems);
+      setStyleMenu("cont2");
+    } else {
+      menuItems = "menu-inactive";
+      console.log(document.querySelector(".burger").classList.toggle("active"));
+      console.log(menuItems);
+    }
+  };
   let menuItems = "menu-inactive";
+
   return (
-    <div className={"left-sidebar" + menuItems}>
+    <div className={styleMenu}>
       <i className="burger" onClick={menuHamburger}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
