@@ -5,8 +5,8 @@ import { Routes, Route } from "react-router-dom";
 import Puzzle from "../pages/Puzzle";
 import { IconButton } from "@mui/material";
 let i = 0;
-function Sidebar() {
-  let [styleMenu, setStyleMenu] = useState("left-sidebar");
+function Sidebarmovile() {
+  let [styleMenu, setStyleMenu] = useState("left-sidebar-inactive");
   const [burger, setBurger] = useState("burger-inactive");
   console.log(i+"11. style menu: "+styleMenu);
  
@@ -76,4 +76,4 @@ function Sidebar() {
   );
 }
 
-export default Sidebar;
+export default Sidebarmovile;

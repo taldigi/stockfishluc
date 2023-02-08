@@ -4,6 +4,7 @@ import Puzzle from "./pages/Puzzle";
 import SideNav from "./components/SideNav";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
+import Sidebarmovile from "./components/SideNavMovile";
 
 const App = () => {
   const [container, setContainer] = useState("container");
@@ -16,7 +17,8 @@ const App = () => {
   }, []);
   return (
     <div className="bodyClass">
-      <SideNav />
+      {/*<SideNav />*/}
+      <Sidebarmovile />
       <div className={container}>
         <Routes>
           <Route path="/" element={<Home />} />
