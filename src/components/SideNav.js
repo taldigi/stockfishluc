@@ -23,7 +23,7 @@ function SideNav() {
       <div className={styleMenu}>
         <ul>
           <li>
-            <a href="/">Homeddddddd</a>
+            <a href="/">Home</a>
           </li>
           <li>
             <a href="/puzzle">Puzzle</a>
