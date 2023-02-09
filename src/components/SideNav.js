@@ -6,7 +6,7 @@ import Puzzle from "../pages/Puzzle";
 import { IconButton } from "@mui/material";
 let i = 0;
 function Sidebar() {
-  const [styleMenu, setStyleMenu] = useState("left-sidebar");
+  const [styleMenu, setStyleMenu] = useState("left-sidebar-inactive");
   const [burger, setBurger] = useState("burger-inactive");
   if (window.innerWidth < 600) {
     if (i === 0) {
