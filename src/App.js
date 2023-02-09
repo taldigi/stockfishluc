@@ -4,6 +4,7 @@ import Puzzle from "./pages/Puzzle";
 import SideNav from "./components/SideNav";
 import Home from "./pages/Home";
 import Blog from "./pages/Blog";
+import Media from "react-media";
 
 const App = () => {
   const [container, setContainer] = useState("container");
