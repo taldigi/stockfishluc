@@ -4,19 +4,19 @@ import { Routes, Route } from "react-router-dom";
 
 import Puzzle from "../pages/Puzzle";
 import { IconButton } from "@mui/material";
-
 let i = 0;
-function SideNav() {
+function Sidebarmovile() {
   let [styleMenu, setStyleMenu] = useState("left-sidebar-inactive");
   const [burger, setBurger] = useState("burger-inactive");
-  console.log(i + "11. style menu: " + styleMenu);
-
+  console.log(i+"11. style menu: "+styleMenu);
+ 
   if (window.innerWidth < 600) {
-    console.log(i + "15. style menu: " + styleMenu);
-    if (i === 0) {
-      styleMenu = "left-sidebar-inactive";
+   
+    console.log(i+"15. style menu: "+styleMenu);
+    if (i === 0) { 
+      styleMenu ="left-sidebar-inactive";
       setStyleMenu("left-sidebar-inactive");
-      console.log(i + "19. style menu: " + styleMenu);
+      console.log(i+"19. style menu: "+styleMenu);
       setBurger("burger");
       i++;
     }
@@ -76,4 +76,4 @@ function SideNav() {
   );
 }
 
-export default SideNav;
+export default Sidebarmovile;

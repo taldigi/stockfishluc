@@ -6,7 +6,7 @@ import Puzzle from "../pages/Puzzle";
 import { IconButton } from "@mui/material";
 
 let i = 0;
-function SideNav() {
+function Sidebar() {
   let [styleMenu, setStyleMenu] = useState("left-sidebar-inactive");
   const [burger, setBurger] = useState("burger-inactive");
   console.log(i + "11. style menu: " + styleMenu);
@@ -76,4 +76,4 @@ function SideNav() {
   );
 }
 
-export default SideNav;
+export default Sidebar;
