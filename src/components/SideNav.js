@@ -4,24 +4,25 @@ import { Routes, Route } from "react-router-dom";
 
 import Puzzle from "../pages/Puzzle";
 import { IconButton } from "@mui/material";
+import useGetUsers from "./data/useUserData";
+import { render } from "react-dom";
 
 let i = 0;
 function SideNav() {
   let [styleMenu, setStyleMenu] = useState("left-sidebar");
   const [burger, setBurger] = useState("burger-inactive");
-  console.log(i + "11. style menu: " + styleMenu);
 
   const menuHamburger = () => {
     //change the class of the left-sidebar
     //change the class of the burger
   };
 
+  const allUsers = useGetUsers();
   return (
     <div>
-      {" "}
-      {console.log("STYLEMENU" + styleMenu)}
       <div className={styleMenu}>
         <ul>
+          <li> </li>
           <li>
             <a href="/">Home</a>
           </li>
@@ -31,6 +32,13 @@ function SideNav() {
           <li>
             <a href="/blog">Blog</a>
           </li>
+        </ul>
+        <ul>
+          {allUsers.map((user) => (
+            <li key={user.id}>
+              {user.name} {user.email}
+            </li>
+          ))}
         </ul>
       </div>
     </div>
